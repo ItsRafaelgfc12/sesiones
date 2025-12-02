@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Fisiología de la Digestión en Insectos – Entomología General UNDC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #bf360c;
+      --primary-light: #ff7043;
+      --primary-soft: #fbe9e7;
+      --accent: #33691e;
+      --bg: #f5f5f5;
+      --text: #222;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      padding: 1.1rem 1.4rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: 0.04em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.4);
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem 2.5rem;
+    }
+
+    .hero {
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.8rem 1.6rem;
+      margin-top: 1.4rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.6fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      color: #fff;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      padding: 0.35rem 0.7rem;
+      border-radius: 10px;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 0.7rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.4rem 0 1rem;
+    }
+
+    .chip {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid rgba(191,54,12,0.3);
+    }
+
+    .hero p {
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-info {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 0.4rem;
+    }
+
+    .hero-figure {
+      background: radial-gradient(circle at top left, #ffccbc, #ffffff);
+      border-radius: 18px;
+      padding: 1.2rem;
+      text-align: center;
+      border: 1px solid #e0e0e0;
+    }
+
+    .hero-icon {
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-figure h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      color: #333;
+    }
+
+    .hero-figure p {
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    section { margin-top: 2rem; }
+
+    section h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    section h3 {
+      font-size: 1.05rem;
+      margin: 0.9rem 0 0.3rem;
+      color: #333;
+    }
+
+    .pill-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #666;
+      margin-bottom: 0.15rem;
+    }
+
+    p { margin-bottom: 0.4rem; font-size: 0.94rem; }
+
+    ul {
+      margin: 0.3rem 0 0.6rem 1.2rem;
+      font-size: 0.93rem;
+    }
+
+    li { margin-bottom: 0.25rem; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1rem 1rem 1.1rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.04);
+      border: 1px solid #e0e0e0;
+    }
+
+    .card-strong { border-left: 4px solid var(--primary-light); }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #777;
+      margin-bottom: 0.35rem;
+    }
+
+    .highlight {
+      background: #fff8e1;
+      padding: 0.3rem 0.45rem;
+      border-radius: 8px;
+      border: 1px solid #ffecb3;
+      font-size: 0.88rem;
+      margin-top: 0.3rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #e8f5e9;
+      color: #1b5e20;
+    }
+
+    .process-steps {
+      counter-reset: step;
+      margin-top: 0.4rem;
+    }
+
+    .process-step {
+      position: relative;
+      padding-left: 2.1rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.92rem;
+    }
+
+    .process-step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .table-basic {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .table-basic th, .table-basic td {
+      border: 1px solid #e0e0e0;
+      padding: 0.4rem 0.5rem;
+      text-align: left;
+    }
+
+    .table-basic th {
+      background: var(--primary-soft);
+      font-weight: 600;
+      color: #333;
+    }
+
+    .activities {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .activity {
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.8rem 0.9rem;
+      border: 1px solid #e0e0e0;
+      font-size: 0.9rem;
+    }
+
+    .activity-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: #333;
+    }
+
+    .activity-type {
+      font-size: 0.75rem;
+      color: #777;
+      margin-bottom: 0.3rem;
+    }
+
+    .note-box {
+      background: #e3f2fd;
+      border-radius: 12px;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.88rem;
+      margin-top: 0.5rem;
+      border-left: 4px solid #1976d2;
+    }
+
+    .glossary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .glossary-item {
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.7rem 0.8rem;
+      border: 1px dashed #ffccbc;
+      font-size: 0.88rem;
+    }
+
+    .glossary-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: #333;
+    }
+
+    .cta {
+      margin-top: 1.2rem;
+      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      border: 1px solid #ffccbc;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      padding: 1rem 0 1.4rem;
+    }
+
+    .top-link {
+      text-decoration: none;
+      font-size: 0.8rem;
+      color: var(--primary-light);
+    }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid-2, .activities, .glossary { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">🪲 Fisiología Digestiva de Insectos · Entomología General UNDC</div>
+    <nav>
+      <ul>
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#fisiologia">Fisiología de la digestión</a></li>
+        <li><a href="#nutricion">Nutrición en insectos</a></li>
+        <li><a href="#aparato">Aparato digestivo modelo</a></li>
+        <li><a href="#practica">Práctica de laboratorio</a></li>
+        <li><a href="#seguridad">Seguridad y reporte</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div>
+      <h1>Fisiología de la digestión en insectos</h1>
+      <h2>De la anatomía del aparato digestivo a la práctica de disección en el laboratorio</h2>
+      <div class="chips">
+        <span class="chip">Entomología General</span>
+        <span class="chip">VI ciclo</span>
+        <span class="chip">Escuela Profesional de Agronomía</span>
+        <span class="chip">Universidad Nacional de Cañete</span>
+      </div>
+      <p>
+        La <strong>fisiología de la digestión y nutrición en insectos</strong> es clave para
+        comprender cómo estos organismos obtienen energía y nutrientes, y cómo sus hábitos
+        alimenticios impactan en los <strong>ecosistemas agrícolas</strong>, ya sea como plagas
+        o como agentes benéficos.
+      </p>
+      <p class="hero-info">
+        Tema: Fisiología de la digestión y nutrición en insectos. Práctica de laboratorio:  
+        disección y observación del aparato digestivo en insectos modelo.
+      </p>
+    </div>
+    <div class="hero-figure">
+      <div class="hero-icon">🪳🔬</div>
+      <h3>Del tubo digestivo al manejo integrado de plagas</h3>
+      <p>
+        Conocer la estructura y función del aparato digestivo ayuda a entender
+        cómo se alimentan las plagas agrícolas y cómo pueden ser controladas de
+        manera más eficiente y específica.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRODUCCIÓN -->
+  <section id="introduccion">
+    <p class="pill-title">Unidad · Fisiología y anatomía de insectos</p>
+    <h2>🔹 Importancia del estudio del aparato digestivo</h2>
+    <div class="grid-2">
+      <div class="card card-strong">
+        <span class="tag">Relevancia en agronomía</span>
+        <p>
+          En agronomía, muchos insectos son <strong>fitófagos</strong> (se alimentan de tejidos
+          vegetales), afectando hojas, tallos, raíces, frutos y semillas. Entender su aparato
+          digestivo permite:
+        </p>
+        <ul>
+          <li>Interpretar sus <strong>preferencias alimenticias</strong>.</li>
+          <li>Comprender su <strong>eficiencia para digerir tejido vegetal</strong>.</li>
+          <li>Diseñar estrategias de <strong>control</strong> (químico, biológico, biotecnológico) más específicas.</li>
+        </ul>
+        <div class="highlight">
+          La fisiología digestiva es un puente entre la biología básica del insecto y el
+          manejo integrado de plagas en campo.
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Objetivos formativos de la sesión</span>
+        <ul>
+          <li>Reconocer las principales regiones del aparato digestivo en insectos.</li>
+          <li>Relacionar la <strong>estructura</strong> con la <strong>función</strong> en la digestión y absorción de nutrientes.</li>
+          <li>Realizar una <strong>disección básica</strong> de insectos modelo en laboratorio.</li>
+          <li>Registrar observaciones morfológicas y elaborar un informe técnico corto.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FISIOLOGÍA DE LA DIGESTIÓN -->
+  <section id="fisiologia">
+    <p class="pill-title">Parte 1</p>
+    <h2>1️⃣ Fisiología de la digestión en insectos</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Organización general del tubo digestivo</span>
+        <p>
+          El aparato digestivo de los insectos se divide, de manera general, en tres regiones:
+        </p>
+        <ul>
+          <li><strong>Intestino anterior (estomodeo):</strong> boca, faringe, esófago, buche y proventrículo.</li>
+          <li><strong>Intestino medio (mesenterón):</strong> principal región de <strong>digestión y absorción</strong>.</li>
+          <li><strong>Intestino posterior (proctodeo):</strong> íleon, colon, recto y ano; reabsorción de agua y sales.</li>
+        </ul>
+        <div class="highlight">
+          El intestino anterior y posterior tienen origen ectodérmico y están recubiertos
+          por cutícula; el intestino medio es endodérmico y carece de cutícula, lo que
+          facilita la digestión y absorción.
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Fisiología básica</span>
+        <ul>
+          <li>En el <strong>estomodeo</strong> se almacena y transporta el alimento; puede haber trituración mecánica.</li>
+          <li>En el <strong>mesenterón</strong> actúan enzimas digestivas (proteasas, amilasas, lipasas).</li>
+          <li>La <strong>membrana peritrófica</strong> protege el epitelio del intestino medio y regula el paso del bolo alimenticio.</li>
+          <li>En el <strong>proctodeo</strong> se reabsorbe agua y se concentra el material fecal.</li>
+        </ul>
+        <p>
+          Órganos accesorios:  
+          – <strong>Glándulas salivales</strong>: secretan enzimas y sustancias lubricantes.  
+          – <strong>Túbulos de Malpighi</strong>: excreción y regulación de sales, relacionados con el equilibrio hídrico.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUTRICIÓN EN INSECTOS -->
+  <section id="nutricion">
+    <p class="pill-title">Parte 2</p>
+    <h2>2️⃣ Nutrición y tipos de alimentación en insectos</h2>
+
+    <div class="grid-2">
+      <div class="card card-strong">
+        <span class="tag">Clasificación según dieta</span>
+        <ul>
+          <li><span class="badge">Fitófagos</span> – se alimentan de plantas (hojas, savia, semillas, frutos).</li>
+          <li><span class="badge">Zoófagos</span> – depredadores y parasitoides, se alimentan de otros animales.</li>
+          <li><span class="badge">Saprófagos</span> – consumen materia orgánica en descomposición.</li>
+          <li><span class="badge">Hematófagos</span> – consumen sangre (de interés médico-veterinario).</li>
+        </ul>
+        <p>
+          Cada tipo de dieta se asocia con adaptaciones específicas en el aparato
+          digestivo y en las enzimas presentes.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="tag">Nutrientes esenciales</span>
+        <ul>
+          <li><strong>Carbohidratos:</strong> fuente de energía inmediata.</li>
+          <li><strong>Proteínas y aminoácidos:</strong> síntesis de tejidos, enzimas, cutícula.</li>
+          <li><strong>Lípidos:</strong> reserva energética y componentes de membranas.</li>
+          <li><strong>Vitaminas y minerales:</strong> cofactores enzimáticos y regulación fisiológica.</li>
+          <li><strong>Simbiontes microbianos:</strong> en algunos grupos, aportan nutrientes que la dieta no provee.</li>
+        </ul>
+        <div class="highlight">
+          En insectos plaga de cultivos, la calidad nutricional de la planta hospedera
+          influye en su tasa de crecimiento, fecundidad y capacidad de daño.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APARATO DIGESTIVO EN INSECTOS MODELO -->
+  <section id="aparato">
+    <p class="pill-title">Parte 3</p>
+    <h2>3️⃣ Aparato digestivo en insectos modelo</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Insectos modelo sugeridos</span>
+        <ul>
+          <li><strong>Cucaracha (Blattodea):</strong> aparato digestivo robusto, fácil de observar.</li>
+          <li><strong>Saltamontes (Orthoptera):</strong> típico fitófago con mesenterón bien desarrollado.</li>
+          <li><strong>Larvas de Lepidóptera:</strong> fuertes consumidores de tejido foliar.</li>
+        </ul>
+        <p>
+          La elección del modelo dependerá de la disponibilidad en laboratorio y del
+          enfoque del curso (plagas locales, facilidad de manejo, tamaño del insecto).
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="tag">Estructuras a identificar</span>
+        <ul>
+          <li>Boca y piezas bucales (masticadoras o chupadoras, según el modelo).</li>
+          <li>Esófago y buche.</li>
+          <li>Proventrículo (si está presente) y válvula estomodeal.</li>
+          <li>Intestino medio (mesenterón) y ciegos gástricos (en algunos grupos).</li>
+          <li>Base de los <strong>Túbulos de Malpighi</strong>.</li>
+          <li>Intestino posterior: íleon, colon, recto y abertura anal.</li>
+        </ul>
+        <div class="highlight">
+          En la práctica de laboratorio, se espera que el estudiante pueda dibujar y
+          etiquetar estas estructuras a partir de sus propias observaciones.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÁCTICA DE LABORATORIO -->
+  <section id="practica">
+    <p class="pill-title">Práctica de laboratorio</p>
+    <h2>🔬 Práctica: Disección del aparato digestivo en insectos modelo</h2>
+
+    <div class="grid-2">
+      <div class="card card-strong">
+        <span class="tag">Datos generales</span>
+        <ul>
+          <li><strong>Curso:</strong> Entomología General.</li>
+          <li><strong>Ciclo:</strong> VI ciclo – Escuela Profesional de Agronomía – UNDC.</li>
+          <li><strong>Título de la práctica:</strong> Disección y observación del aparato digestivo en insectos modelo.</li>
+        </ul>
+        <h3>Objetivos específicos</h3>
+        <ul>
+          <li>Realizar la disección del aparato digestivo en un insecto modelo.</li>
+          <li>Reconocer e identificar las principales estructuras del tubo digestivo.</li>
+          <li>Relacionar las estructuras observadas con su función fisiológica.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="tag">Materiales y equipos</span>
+        <ul>
+          <li>Bandeja de disección.</li>
+          <li>Pinzas finas y gruesas.</li>
+          <li>Tijeras de disección pequeñas.</li>
+          <li>Agujas de disección o alfileres entomológicos.</li>
+          <li>Gotero o micropipeta con solución salina fisiológica o agua.</li>
+          <li>Lupa estereoscópica / microscopio estereoscópico (si está disponible).</li>
+          <li>Papel absorbente, guantes desechables, mascarilla (según normas del laboratorio).</li>
+          <li>Insectos modelo (cucarachas, saltamontes u otros disponibles).</li>
+          <li>Hoja de registro de observaciones y lápiz para dibujo.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 1rem;">
+      <span class="tag">Procedimiento sugerido</span>
+      <div class="process-steps">
+        <div class="process-step">
+          <strong>Preparación del área:</strong> limpiar la bandeja de disección y disponer
+          el material necesario. Utilizar elementos de bioseguridad básicos (guantes, etc.).
+        </div>
+        <div class="process-step">
+          <strong>Colocación del insecto:</strong> situar el insecto sobre la bandeja en
+          posición dorsal o ventral según el modelo, fijando suavemente con alfileres.
+        </div>
+        <div class="process-step">
+          <strong>Apertura del tegumento:</strong> realizar cortes cuidadosos en el
+          exoesqueleto abdominal y torácico para exponer las vísceras sin seccionarlas.
+        </div>
+        <div class="process-step">
+          <strong>Exposición del aparato digestivo:</strong> separar con suavidad los tejidos
+          laterales, localizar el tubo digestivo desde la región bucal hasta el ano.
+        </div>
+        <div class="process-step">
+          <strong>Identificación de estructuras:</strong> reconocer esófago, buche, intestino
+          medio, túbulos de Malpighi e intestino posterior; registrar en un esquema rotulado.
+        </div>
+        <div class="process-step">
+          <strong>Registro y limpieza:</strong> completar la tabla de observaciones,
+          realizar dibujos, tomar fotografías (si está permitido) y finalmente disponer
+          el material biológico según las normas del laboratorio.
+        </div>
+      </div>
+      <div class="note-box">
+        Durante el procedimiento, evitar manipular el tubo digestivo en exceso para no
+        romper las estructuras finas. Trabajar siempre con movimientos delicados.
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGURIDAD Y REPORTE -->
+  <section id="seguridad">
+    <p class="pill-title">Cierre de práctica</p>
+    <h2>🧯 Seguridad, ética y reporte de laboratorio</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Normas básicas de seguridad</span>
+        <ul>
+          <li>Usar bata, guantes y, de ser necesario, lentes de protección.</li>
+          <li>No consumir alimentos ni bebidas en el laboratorio.</li>
+          <li>Mantener el área de trabajo limpia y ordenada.</li>
+          <li>Manipular instrumental cortante con cuidado y devolverlo al lugar asignado.</li>
+          <li>Disponer los restos biológicos en contenedores designados por el docente.</li>
+        </ul>
+        <div class="highlight">
+          Respetar siempre los lineamientos del reglamento interno del laboratorio
+          de la Universidad Nacional de Cañete.
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Estructura sugerida del informe</span>
+        <ul>
+          <li><strong>Portada:</strong> Universidad, curso, título de la práctica, sección, integrantes.</li>
+          <li><strong>Introducción:</strong> breve marco teórico sobre aparato digestivo en insectos.</li>
+          <li><strong>Objetivos:</strong> general y específicos.</li>
+          <li><strong>Materiales y métodos:</strong> listado y resumen del procedimiento.</li>
+          <li><strong>Resultados:</strong> dibujos, fotografías, tabla de observaciones.</li>
+          <li><strong>Discusión:</strong> relación estructura–función y vínculo con hábitos alimenticios / plagas agrícolas.</li>
+          <li><strong>Conclusiones:</strong> principales aprendizajes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <section>
+      <p class="pill-title">Apoyo al aprendizaje</p>
+      <h2>📚 Glosario básico</h2>
+      <div class="glossary">
+        <div class="glossary-item">
+          <strong>Estomodeo</strong>
+          Región anterior del tubo digestivo (boca a proventrículo), relacionada con ingestión y almacenamiento.
+        </div>
+        <div class="glossary-item">
+          <strong>Mesenterón</strong>
+          Intestino medio; principal sitio de digestión y absorción de nutrientes.
+        </div>
+        <div class="glossary-item">
+          <strong>Proctodeo</strong>
+          Región posterior donde se reabsorbe agua y se forman las heces.
+        </div>
+        <div class="glossary-item">
+          <strong>Membrana peritrófica</strong>
+          Estructura que envuelve el bolo alimenticio en el intestino medio y protege el epitelio.
+        </div>
+        <div class="glossary-item">
+          <strong>Túbulos de Malpighi</strong>
+          Órganos excretores que participan en la eliminación de desechos y en la regulación osmótica.
+        </div>
+        <div class="glossary-item">
+          <strong>Fitófago</strong>
+          Insecto que se alimenta principalmente de tejidos vegetales.
+        </div>
+      </div>
+    </section>
+
+    <div class="cta">
+      <strong>Sugerencia para el estudiante:</strong> este sitio puede proyectarse antes y
+      durante la práctica como guía visual. Los estudiantes pueden usarlo para su practica  y como referencia al elaborar su informe de laboratorio.
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="top-link" href="#inicio">▲ Volver al inicio</a><br>
+  Sitio web académico – Entomología General · Escuela Profesional de Agronomía – Universidad Nacional de Cañete · Mg. Ing. Julio Cesar Matos Lizana
+
+</footer>
+
+</body>
+</html>
