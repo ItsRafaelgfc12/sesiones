@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Biología del Desarrollo y Metamorfosis – Entomología General UNDC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --primary-light: #66bb6a;
+      --primary-soft: #e8f5e9;
+      --accent: #f9a825;
+      --bg: #f5f5f5;
+      --text: #222;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      padding: 1.1rem 1.4rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: 0.04em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.16);
+      border-color: rgba(255,255,255,0.4);
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem 2.5rem;
+    }
+
+    .hero {
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.8rem 1.6rem;
+      margin-top: 1.4rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      color: #fff;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      padding: 0.35rem 0.7rem;
+      border-radius: 10px;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 0.7rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.4rem 0 1rem;
+    }
+
+    .chip {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid rgba(46,125,50,0.3);
+    }
+
+    .hero p {
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-info {
+      font-size: 0.8rem;
+      color: #eee;
+      margin-top: 0.4rem;
+      background: rgba(0,0,0,0.25);
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .hero-figure {
+      background: radial-gradient(circle at top left, #c5e1a5, #ffffff);
+      border-radius: 18px;
+      padding: 1.2rem;
+      text-align: center;
+      border: 1px solid #e0e0e0;
+    }
+
+    .hero-icon {
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-figure h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      color: #333;
+    }
+
+    .hero-figure p {
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    section { margin-top: 2rem; }
+
+    section h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    section h3 {
+      font-size: 1.05rem;
+      margin: 0.9rem 0 0.3rem;
+      color: #333;
+    }
+
+    .pill-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #666;
+      margin-bottom: 0.15rem;
+    }
+
+    p { margin-bottom: 0.4rem; font-size: 0.94rem; }
+
+    ul {
+      margin: 0.3rem 0 0.6rem 1.2rem;
+      font-size: 0.93rem;
+    }
+
+    li { margin-bottom: 0.25rem; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1rem 1rem 1.1rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.04);
+      border: 1px solid #e0e0e0;
+    }
+
+    .card-strong { border-left: 4px solid var(--primary-light); }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #777;
+      margin-bottom: 0.35rem;
+    }
+
+    .highlight {
+      background: #fff8e1;
+      padding: 0.3rem 0.45rem;
+      border-radius: 8px;
+      border: 1px solid #ffecb3;
+      font-size: 0.88rem;
+      margin-top: 0.3rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #e0f2f1;
+      color: #004d40;
+    }
+
+    .table-basic {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .table-basic th, .table-basic td {
+      border: 1px solid #e0e0e0;
+      padding: 0.4rem 0.5rem;
+      text-align: left;
+    }
+
+    .table-basic th {
+      background: var(--primary-soft);
+      font-weight: 600;
+      color: #333;
+    }
+
+    .activities {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .activity {
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.8rem 0.9rem;
+      border: 1px solid #e0e0e0;
+      font-size: 0.9rem;
+    }
+
+    .activity-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: #333;
+    }
+
+    .activity-type {
+      font-size: 0.75rem;
+      color: #777;
+      margin-bottom: 0.3rem;
+    }
+
+    .glossary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .glossary-item {
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.7rem 0.8rem;
+      border: 1px dashed #c5e1a5;
+      font-size: 0.88rem;
+    }
+
+    .glossary-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: #333;
+    }
+
+    .note-box {
+      background: #e3f2fd;
+      border-radius: 12px;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.88rem;
+      margin-top: 0.5rem;
+      border-left: 4px solid #1976d2;
+    }
+
+    .cta {
+      margin-top: 1.2rem;
+      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      border: 1px solid #c5e1a5;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      padding: 1rem 0 1.4rem;
+    }
+
+    .top-link {
+      text-decoration: none;
+      font-size: 0.8rem;
+      color: var(--primary-light);
+    }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid-2, .activities, .glossary { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">🦋 Desarrollo y Metamorfosis · Entomología General UNDC</div>
+    <nav>
+      <ul>
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#desarrollo">Biología del desarrollo</a></li>
+        <li><a href="#metamorfosis">Tipos de metamorfosis</a></li>
+        <li><a href="#ordenes">Órdenes y ejemplos</a></li>
+        <li><a href="#practica">Práctica de laboratorio</a></li>
+        <li><a href="#actividades">Actividades</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div>
+      <h1>Biología del desarrollo y metamorfosis</h1>
+      <h2>Observación de estadios de desarrollo y tipos de metamorfosis en diferentes órdenes de insectos</h2>
+      <div class="chips">
+        <span class="chip">Entomología General</span>
+        <span class="chip">VI ciclo</span>
+        <span class="chip">Escuela Profesional de Agronomía</span>
+        <span class="chip">Universidad Nacional de Cañete</span>
+      </div>
+      <p>
+        La <strong>biología del desarrollo</strong> y la <strong>metamorfosis de los insectos</strong>
+        explican cómo estos organismos pasan de huevo a adulto, modificando su forma,
+        hábitos alimenticios y papel ecológico. En agronomía, conocer los estadios de
+        desarrollo es clave para definir <strong>momentos oportunos de monitoreo y control</strong>
+        de plagas.
+      </p>
+      <span class="hero-info">
+        Tema: Biología del desarrollo y metamorfosis de los insectos.  
+        Práctica: observación de estadios de desarrollo y tipos de metamorfosis en diferentes órdenes.
+      </span>
+    </div>
+    <div class="hero-figure">
+      <div class="hero-icon">🦗➡️🦋</div>
+      <h3>De huevo a adulto</h3>
+      <p>
+        El análisis de huevos, larvas, ninfas y adultos permite entender el ciclo de vida
+        y diseñar estrategias de manejo integrado en los cultivos.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRODUCCIÓN -->
+  <section id="introduccion">
+    <p class="pill-title">Unidad · Ciclos de vida de insectos</p>
+    <h2>🔹 Importancia del desarrollo y metamorfosis en agronomía</h2>
+    <div class="grid-2">
+      <div class="card card-strong">
+        <span class="tag">Relevancia en el manejo de plagas</span>
+        <p>
+          Muchos insectos dañan los cultivos solo en ciertos <strong>estadios</strong> (por ejemplo,
+          larvas defoliadoras, ninfas chupadoras, adultos perforadores). Conocer su desarrollo permite:
+        </p>
+        <ul>
+          <li>Programar correctamente el <strong>monitoreo</strong> y muestreo.</li>
+          <li>Aplicar medidas de control en el estadio más vulnerable.</li>
+          <li>Comprender la dinámica poblacional a lo largo de la campaña agrícola.</li>
+        </ul>
+        <div class="highlight">
+          La metamorfosis es una herramienta natural que separa funciones: alimentación,
+          dispersión y reproducción, en diferentes fases del ciclo de vida.
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Objetivos de la sesión</span>
+        <ul>
+          <li>Describir las etapas generales del desarrollo de los insectos.</li>
+          <li>Diferenciar tipos de metamorfosis (ametábola, hemimetábola, holometábola).</li>
+          <li>Relacionar órdenes de insectos con su tipo de metamorfosis.</li>
+          <li>Realizar una práctica de observación de distintos estadios de desarrollo.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIOLOGÍA DEL DESARROLLO -->
+  <section id="desarrollo">
+    <p class="pill-title">Parte 1</p>
+    <h2>1️⃣ Biología del desarrollo de insectos</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Etapas del desarrollo</span>
+        <ul>
+          <li><strong>Huevo:</strong> fase embrionaria, protegida por corion; puede resistir condiciones adversas.</li>
+          <li><strong>Estadios juveniles:</strong> larvas o ninfas, dedicadas principalmente a la alimentación y crecimiento.</li>
+          <li><strong>Pupa (en holometábolos):</strong> fase de reorganización profunda de tejidos.</li>
+          <li><strong>Adulto (imago):</strong> fase sexualmente madura; responsable de dispersión y reproducción.</li>
+        </ul>
+        <div class="highlight">
+          El crecimiento se da a través de <strong>mudasy ecdisis</strong>, reguladas por hormonas como la ecdisona y la hormona juvenil.
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Aspectos fisiológicos clave</span>
+        <ul>
+          <li>La cutícula rígida limita el crecimiento continuo, por lo que se requieren mudas sucesivas.</li>
+          <li>La <strong>hormona juvenil</strong> determina si el siguiente estadio será juvenil o adulto.</li>
+          <li>En holometábolos, la pupa marca un cambio radical de forma y función.</li>
+        </ul>
+        <p>
+          En agronomía, el número de mudas y la duración de cada estadio se relacionan con
+          temperatura, humedad y disponibilidad de alimento.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPOS DE METAMORFOSIS -->
+  <section id="metamorfosis">
+    <p class="pill-title">Parte 2</p>
+    <h2>2️⃣ Tipos de metamorfosis en insectos</h2>
+
+    <div class="grid-2">
+      <div class="card card-strong">
+        <span class="tag">Ametábola y hemimetábola</span>
+        <h3>Ametábola</h3>
+        <ul>
+          <li>Sin metamorfosis verdadera.</li>
+          <li>Los juveniles se parecen mucho a los adultos, excepto en tamaño y madurez sexual.</li>
+          <li>Ejemplo: orden Zygentoma (pececillos de plata).</li>
+        </ul>
+        <h3>Hemimetábola (metamorfosis incompleta)</h3>
+        <ul>
+          <li>Estadios: huevo → ninfas → adulto.</li>
+          <li>Las ninfas se parecen al adulto, pero carecen de alas funcionales y órganos reproductores maduros.</li>
+          <li>El desarrollo es gradual; no hay fase de pupa.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="tag">Holometábola</span>
+        <h3>Holometábola (metamorfosis completa)</h3>
+        <ul>
+          <li>Estadios: huevo → larva → pupa → adulto.</li>
+          <li>La larva tiene forma y hábitos muy distintos al adulto.</li>
+          <li>La pupa es una fase de reorganización morfológica profunda.</li>
+          <li>Permite separar el nicho ecológico larval del adulto (por ejemplo, larva plaga – adulto polinizador).</li>
+        </ul>
+        <table class="table-basic">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Estadios</th>
+              <th>Ejemplo general</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ametábola</td>
+              <td>Huevo – juveniles – adulto</td>
+              <td>Zygentoma</td>
+            </tr>
+            <tr>
+              <td>Hemimetábola</td>
+              <td>Huevo – ninfas – adulto</td>
+              <td>Ortópteros, Hemípteros</td>
+            </tr>
+            <tr>
+              <td>Holometábola</td>
+              <td>Huevo – larvas – pupa – adulto</td>
+              <td>Lepidópteros, Coleópteros</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÓRDENES Y EJEMPLOS AGRONÓMICOS -->
+  <section id="ordenes">
+    <p class="pill-title">Parte 3</p>
+    <h2>3️⃣ Órdenes de interés agronómico y su metamorfosis</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Hemimetábolos de importancia agrícola</span>
+        <ul>
+          <li><strong>Hemiptera:</strong> áfidos, chinches, chanchitos blancos; ninfas y adultos suelen ser plagas chupadoras.</li>
+          <li><strong>Orthoptera:</strong> saltamontes, langostas; ninfas y adultos defoliadores.</li>
+          <li><strong>Odonata (formas inmaduras acuáticas):</strong> relevante en sistemas acuáticos y control biológico.</li>
+        </ul>
+        <div class="highlight">
+          En hemimetábolos, las estrategias de manejo suelen considerar tanto a ninfas
+          como a adultos, ya que comparten hábitat y tipo de daño.
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Holometábolos de importancia agrícola</span>
+        <ul>
+          <li><strong>Lepidoptera:</strong> orugas defoliadoras, barrenadores; adultos suelen ser polillas o mariposas.</li>
+          <li><strong>Coleoptera:</strong> larvas y adultos pueden dañar raíces, tallos, hojas o granos.</li>
+          <li><strong>Diptera:</strong> larvas minadoras, moscas de la fruta, etc.</li>
+          <li><strong>Hymenoptera:</strong> parasitoides importantes en control biológico.</li>
+        </ul>
+        <p>
+          En holometábolos, muchas veces solo la larva es plaga, mientras que el adulto
+          puede ser polinizador o de menor impacto directo en el cultivo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÁCTICA DE LABORATORIO -->
+  <section id="practica">
+    <p class="pill-title">Práctica de laboratorio</p>
+    <h2>🔬 Práctica: Observación de estadios de desarrollo y metamorfosis</h2>
+
+    <div class="grid-2">
+      <div class="card card-strong">
+        <span class="tag">Datos generales</span>
+        <ul>
+          <li><strong>Curso:</strong> Entomología General.</li>
+          <li><strong>Ciclo:</strong> VI – Escuela Profesional de Agronomía – UNDC.</li>
+          <li><strong>Título:</strong> Observación de estadios de desarrollo y tipos de metamorfosis en diferentes órdenes.</li>
+        </ul>
+        <h3>Objetivos específicos</h3>
+        <ul>
+          <li>Reconocer huevos, estadios juveniles, pupas y adultos en distintos órdenes.</li>
+          <li>Asociar cada grupo a su tipo de metamorfosis.</li>
+          <li>Registrar características morfológicas clave para la identificación de estadios.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="tag">Materiales y equipos</span>
+        <ul>
+          <li>Lupa estereoscópica y/o microscopio óptico.</li>
+          <li>Láminas con ejemplares conservados (huevos, larvas, ninfas, pupas, adultos).</li>
+          <li>Frascos con insectos recolectados en campo (cuando sea posible).</li>
+          <li>Portaobjetos, cubreobjetos, pinzas y agujas de disección.</li>
+          <li>Fichas de registro y hojas para dibujo.</li>
+          <li>Bata de laboratorio y guantes (según normas del laboratorio).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 1rem;">
+      <span class="tag">Actividades en laboratorio (procedimiento sugerido)</span>
+      <ol style="margin-left:1.2rem; font-size:0.92rem;">
+        <li>Organizar las mesas de trabajo y distribuir los ejemplares por orden y tipo de estadio.</li>
+        <li>Observar con lupa estereoscópica los huevos, larvas/ninfas, pupas y adultos.</li>
+        <li>Registrar para cada ejemplar: orden, estadio, tipo de metamorfosis y principal hábito alimenticio.</li>
+        <li>Realizar dibujos esquemáticos de al menos un ciclo completo (por ejemplo, lepidóptero o coleóptero).</li>
+        <li>Comparar las diferencias entre una metamorfosis hemimetábola y una holometábola usando ejemplos observados.</li>
+      </ol>
+      <div class="note-box">
+        Se recomienda trabajar con especies de interés agrícola local, para que los
+        estudiantes puedan relacionar lo observado con plagas y organismos benéficos
+        presentes en la región.
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVIDADES Y GLOSARIO -->
+  <section id="actividades">
+    <p class="pill-title">Trabajo académico</p>
+    <h2>📝 Actividades para estudiantes de VI ciclo</h2>
+
+    <div class="activities">
+      <div class="activity">
+        <div class="activity-title">1. Cuadro comparativo de metamorfosis</div>
+        <div class="activity-type">Tipo: Individual</div>
+        <p>
+          Elabora un cuadro comparativo entre metamorfosis ametábola, hemimetábola
+          y holometábola, indicando: órdenes representativos, estadios presentes, tipo
+          de hábitat y ejemplo de importancia agronómica.
+        </p>
+      </div>
+
+      <div class="activity">
+        <div class="activity-title">2. Ciclo de vida de una plaga agrícola</div>
+        <div class="activity-type">Tipo: Parejas</div>
+        <p>
+          Seleccionen una plaga de importancia local (por ejemplo, en frutales, hortalizas
+          o cultivos industriales) y dibujen su ciclo de vida, señalando en qué estadio
+          causa mayor daño y cuál sería el momento ideal para el control.
+        </p>
+      </div>
+
+      <div class="activity">
+        <div class="activity-title">3. Informe corto de laboratorio</div>
+        <div class="activity-type">Tipo: Grupal</div>
+        <p>
+          A partir de las observaciones en laboratorio, elaboren un informe que incluya:
+          tabla de estadios observados, tipo de metamorfosis y comentarios sobre la
+          relevancia de cada ejemplo en sistemas agrícolas.
+        </p>
+      </div>
+
+      <div class="activity">
+        <div class="activity-title">4. Pregunta de reflexión</div>
+        <div class="activity-type">Tipo: Individual</div>
+        <p>
+          Responde: ¿Por qué la metamorfosis completa (holometábola) puede representar
+          una ventaja evolutiva en algunos grupos de insectos, especialmente en ambientes
+          agrícolas con cambios estacionales marcados?
+        </p>
+      </div>
+    </div>
+
+    <section>
+      <p class="pill-title">Apoyo al aprendizaje</p>
+      <h2>📚 Glosario básico</h2>
+      <div class="glossary">
+        <div class="glossary-item">
+          <strong>Metamorfosis</strong>
+          Conjunto de cambios en la forma y estructura del insecto a lo largo de su desarrollo.
+        </div>
+        <div class="glossary-item">
+          <strong>Ninfa</strong>
+          Estado juvenil de insectos hemimetábolos, parecido al adulto pero sin alas funcionales ni madurez sexual.
+        </div>
+        <div class="glossary-item">
+          <strong>Larva</strong>
+          Estado juvenil de insectos holometábolos, morfológicamente distinto al adulto.
+        </div>
+        <div class="glossary-item">
+          <strong>Pupa</strong>
+          Fase inmóvil (o de escasa movilidad) en holometábolos, donde se reorganizan los tejidos.
+        </div>
+        <div class="glossary-item">
+          <strong>Imago</strong>
+          Estado adulto, sexualmente maduro, capaz de reproducirse y dispersarse.
+        </div>
+        <div class="glossary-item">
+          <strong>Muda (ecdisis)</strong>
+          Proceso de desprendimiento de la cutícula antigua para permitir el crecimiento.
+        </div>
+      </div>
+    </section>
+
+    <div class="cta">
+      <strong>Sugerencia para el estudiante:</strong> este sitio puede utilizarse como guía
+      para la sesión teórica y como apoyo visual durante la práctica de laboratorio.
+     
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="top-link" href="#inicio">▲ Volver al inicio</a><br>
+  Sitio web académico – Entomología General · Escuela Profesional de Agronomía – Universidad Nacional de Cañete · Mg. Ing. Julio Cesar Matos Lizana
+
+</footer>
+
+</body>
+</html>
