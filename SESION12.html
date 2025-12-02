@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>División Celular – Biología General Agronomía</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #1565c0;
+      --primary-light: #42a5f5;
+      --primary-soft: #e3f2fd;
+      --accent: #8bc34a;
+      --bg: #f5f5f5;
+      --text: #222;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      padding: 1.1rem 1.4rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.35);
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem 2.5rem;
+    }
+
+    .hero {
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.8rem 1.6rem;
+      margin-top: 1.4rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 0.7rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.4rem 0 1rem;
+    }
+
+    .chip {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid rgba(21,101,192,0.3);
+    }
+
+    .hero p {
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-info {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 0.4rem;
+    }
+
+    .hero-figure {
+      background: radial-gradient(circle at top left, #bbdefb, #ffffff);
+      border-radius: 18px;
+      padding: 1.2rem;
+      text-align: center;
+      border: 1px solid #e0e0e0;
+    }
+
+    .hero-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-figure h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      color: #333;
+    }
+
+    .hero-figure p {
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    section { margin-top: 2rem; }
+
+    section h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .pill-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #666;
+      margin-bottom: 0.15rem;
+    }
+
+    p { margin-bottom: 0.4rem; font-size: 0.94rem; }
+
+    ul {
+      margin: 0.3rem 0 0.6rem 1.2rem;
+      font-size: 0.93rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1rem 1rem 1.1rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.04);
+      border: 1px solid #e0e0e0;
+    }
+
+    .card-strong { border-left: 4px solid var(--primary-light); }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #777;
+      margin-bottom: 0.35rem;
+    }
+
+    .highlight {
+      background: #fff9c4;
+      padding: 0.3rem 0.45rem;
+      border-radius: 8px;
+      border: 1px solid #fff59d;
+      font-size: 0.88rem;
+      margin-top: 0.3rem;
+    }
+
+    .process-steps {
+      counter-reset: step;
+      margin-top: 0.4rem;
+    }
+
+    .process-step {
+      position: relative;
+      padding-left: 2.1rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.92rem;
+    }
+
+    .process-step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .table-basic {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .table-basic th, .table-basic td {
+      border: 1px solid #e0e0e0;
+      padding: 0.4rem 0.5rem;
+      text-align: left;
+    }
+
+    .table-basic th {
+      background: var(--primary-soft);
+      font-weight: 600;
+      color: #333;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #e8f5e9;
+      color: #1b5e20;
+    }
+
+    .activities {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .activity {
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.8rem 0.9rem;
+      border: 1px solid #e0e0e0;
+      font-size: 0.9rem;
+    }
+
+    .activity-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: #333;
+    }
+
+    .activity-type {
+      font-size: 0.75rem;
+      color: #777;
+      margin-bottom: 0.3rem;
+    }
+
+    .glossary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .glossary-item {
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.7rem 0.8rem;
+      border: 1px dashed #bbdefb;
+      font-size: 0.88rem;
+    }
+
+    .glossary-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: #333;
+    }
+
+    .cta {
+      margin-top: 1.2rem;
+      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      border: 1px solid #bbdefb;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      padding: 1rem 0 1.4rem;
+    }
+
+    .top-link {
+      text-decoration: none;
+      font-size: 0.8rem;
+      color: var(--primary-light);
+    }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid-2, .activities, .glossary { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">🧫 División Celular · Agronomía UNDC</div>
+    <nav>
+      <ul>
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#ciclo-celular">Ciclo celular</a></li>
+        <li><a href="#mitosis">Mitosis</a></li>
+        <li><a href="#meiosis">Meiosis</a></li>
+        <li><a href="#agronomia">Importancia en agronomía</a></li>
+        <li><a href="#actividades">Actividades</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div>
+      <h1>División celular</h1>
+      <h2>El ciclo celular, la mitosis y la meiosis en el contexto de la producción agrícola</h2>
+      <div class="chips">
+        <span class="chip">Biología General</span>
+        <span class="chip">Escuela Profesional de Agronomía</span>
+        <span class="chip">Célula y reproducción</span>
+      </div>
+      <p>
+        La <strong>división celular</strong> permite el crecimiento, la reparación de tejidos
+        y la formación de gametos. Conocer el <strong>ciclo celular</strong>, la
+        <strong>mitosis</strong> y la <strong>meiosis</strong> es fundamental para comprender
+        cómo se mantienen y se combinan los genomas de las plantas cultivadas.
+      </p>
+      <p class="hero-info">
+        Tema de la sesión: División celular: ciclo celular, mitosis y meiosis.<br>
+        Curso: Biología General – Escuela Profesional de Agronomía.
+      </p>
+    </div>
+    <div class="hero-figure">
+      <div class="hero-icon">🌱🔬</div>
+      <h3>De una célula al cultivo completo</h3>
+      <p>
+        Cada planta que vemos en el campo es el resultado de millones de divisiones
+        celulares coordinadas en tiempo y espacio.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRODUCCIÓN -->
+  <section id="introduccion">
+    <p class="pill-title">Unidad · Célula y reproducción</p>
+    <h2>🔹 ¿Qué es la división celular?</h2>
+    <div class="grid-2">
+      <div class="card card-strong">
+        <span class="tag">Definición general</span>
+        <p>
+          La <strong>división celular</strong> es el proceso por el cual una célula madre
+          origina nuevas células. Puede generar:
+        </p>
+        <ul>
+          <li>Células <strong>genéticamente idénticas</strong> (mitosis).</li>
+          <li>Células con la mitad del número de cromosomas, o <strong>gametos</strong> (meiosis).</li>
+        </ul>
+        <div class="highlight">
+          La división celular asegura la continuidad de la vida y la transmisión de la
+          información genética entre generaciones.
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Importancia en plantas</span>
+        <ul>
+          <li>Crecimiento de raíces, tallos y hojas.</li>
+          <li>Formación de meristemos y tejidos especializados.</li>
+          <li>Desarrollo de flores, frutos y semillas.</li>
+          <li>Generación de variabilidad genética en los programas de mejoramiento.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CICLO CELULAR -->
+  <section id="ciclo-celular">
+    <p class="pill-title">Parte 1</p>
+    <h2>1️⃣ El ciclo celular</h2>
+    <p>
+      El <strong>ciclo celular</strong> es la secuencia ordenada de eventos que atraviesa
+      una célula desde que se forma hasta que vuelve a dividirse.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Fases principales</span>
+        <ul>
+          <li><strong>Interfase</strong> (la célula crece y se prepara):
+            <ul>
+              <li><strong>G1:</strong> crecimiento y síntesis de proteínas.</li>
+              <li><strong>S:</strong> replicación del ADN.</li>
+              <li><strong>G2:</strong> preparación final para la división.</li>
+            </ul>
+          </li>
+          <li><strong>Fase M:</strong> ocurre la mitosis y la citocinesis.</li>
+        </ul>
+        <div class="highlight">
+          En tejidos vegetales como los meristemos apicales, el ciclo celular es muy activo,
+          lo que explica el crecimiento continuo de la planta.
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Puntos de control</span>
+        <p>
+          El ciclo celular posee <strong>puntos de control</strong> que verifican si la célula
+          está lista para avanzar:
+        </p>
+        <ul>
+          <li>Control de tamaño celular y daño en el ADN.</li>
+          <li>Verificación de que el ADN se haya replicado correctamente.</li>
+          <li>Correcta alineación de cromosomas en la mitosis.</li>
+        </ul>
+        <p>
+          Estos mecanismos son esenciales para evitar mutaciones que puedan afectar el
+          rendimiento o la viabilidad de las plantas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MITOSIS -->
+  <section id="mitosis">
+    <p class="pill-title">Parte 2</p>
+    <h2>2️⃣ La mitosis</h2>
+    <p>
+      La <strong>mitosis</strong> es un tipo de división celular que produce dos células hijas
+      <strong>genéticamente idénticas</strong> a la célula madre. Es fundamental para el
+      crecimiento y la reparación de tejidos.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Etapas de la mitosis</span>
+        <div class="process-steps">
+          <div class="process-step">
+            <strong>Profase:</strong> la cromatina se condensa formando cromosomas; la membrana nuclear
+            comienza a desorganizarse.
+          </div>
+          <div class="process-step">
+            <strong>Metafase:</strong> los cromosomas se alinean en el plano ecuatorial de la célula.
+          </div>
+          <div class="process-step">
+            <strong>Anafase:</strong> las cromátidas hermanas se separan y migran hacia polos opuestos.
+          </div>
+          <div class="process-step">
+            <strong>Telofase:</strong> se reconstituye la membrana nuclear y los cromosomas se descondensan.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Citocinesis e importancia</span>
+        <p>
+          Al finalizar la mitosis ocurre la <strong>citocinesis</strong>, donde el citoplasma
+          se divide y se originan dos células hijas completas.
+        </p>
+        <ul>
+          <li>Permite la formación de nuevos tejidos vegetales.</li>
+          <li>Es clave en procesos de <strong>propagación clonal</strong> (esquejes, cultivo de tejidos).</li>
+          <li>Asegura que la información genética se mantenga estable entre células.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEIOSIS -->
+  <section id="meiosis">
+    <p class="pill-title">Parte 3</p>
+    <h2>3️⃣ La meiosis</h2>
+    <p>
+      La <strong>meiosis</strong> es un tipo de división celular que reduce a la mitad el número
+      de cromosomas, generando <strong>células haploides</strong> (gametos). Es esencial para
+      la reproducción sexual y la variabilidad genética.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Características clave</span>
+        <ul>
+          <li>Consiste en <strong>dos divisiones sucesivas</strong>: meiosis I y meiosis II.</li>
+          <li>Ocurre en las células madre de gametos (en anteras y óvulos de las flores).</li>
+          <li>Genera cuatro células hijas, todas diferentes entre sí.</li>
+        </ul>
+        <table class="table-basic">
+          <thead>
+            <tr>
+              <th>Proceso</th>
+              <th>Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mitosis</td>
+              <td>2 células hijas diploides, idénticas.</td>
+            </tr>
+            <tr>
+              <td>Meiosis</td>
+              <td>4 células hijas haploides, diferentes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <span class="tag">Etapas destacadas</span>
+        <div class="process-steps">
+          <div class="process-step">
+            <strong>Profase I:</strong> los cromosomas homólogos se aparean e intercambian
+            segmentos (entrecruzamiento), generando recombinación genética.
+          </div>
+          <div class="process-step">
+            <strong>Metafase I y Anafase I:</strong> los homólogos se separan, reduciendo el
+            número de cromosomas a la mitad.
+          </div>
+          <div class="process-step">
+            <strong>Meiosis II:</strong> se separan las cromátidas hermanas, similar a una mitosis.
+          </div>
+        </div>
+        <div class="highlight">
+          La recombinación y la segregación independiente de los cromosomas durante la
+          meiosis son la base de la <strong>variabilidad genética</strong> aprovechada en el
+          mejoramiento de cultivos.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPORTANCIA EN AGRONOMÍA -->
+  <section id="agronomia">
+    <p class="pill-title">Aplicación en agronomía</p>
+    <h2>🌾 División celular y producción agrícola</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Relación con el mejoramiento de cultivos</span>
+        <ul>
+          <li>
+            <span class="badge">Variabilidad genética</span><br>
+            La meiosis y la recombinación generan nuevas combinaciones de genes que
+            los fitomejoradores aprovechan para obtener variedades con mayor rendimiento
+            o resistencia.
+          </li>
+          <li>
+            <span class="badge">Estabilidad genética</span><br>
+            La mitosis garantiza que las características seleccionadas se mantengan en
+            las células de cada planta.
+          </li>
+          <li>
+            <span class="badge">Cultivo de tejidos</span><br>
+            El control de la división celular in vitro permite multiplicar plantas de
+            interés sanitario o comercial.
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">Impacto en la producción</span>
+        <ul>
+          <li>Crecimiento radicular adecuado para la absorción de agua y nutrientes.</li>
+          <li>Formación de tejidos fotosintéticos eficientes.</li>
+          <li>Desarrollo de flores y frutos con mejor calidad comercial.</li>
+          <li>Capacidad de la planta para recuperarse de daños mecánicos o poda.</li>
+        </ul>
+        <div class="highlight">
+          Comprender la división celular ayuda al futuro ingeniero agrónomo a interpretar
+          por qué ciertas prácticas de manejo (fertilización, poda, riego) impactan en el
+          crecimiento y rendimiento de los cultivos.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOSARIO -->
+  <section>
+    <p class="pill-title">Apoyo al aprendizaje</p>
+    <h2>📚 Glosario básico</h2>
+    <div class="glossary">
+      <div class="glossary-item">
+        <strong>Ciclo celular</strong>
+        Secuencia de etapas que atraviesa la célula desde una división hasta la siguiente.
+      </div>
+      <div class="glossary-item">
+        <strong>Mitosis</strong>
+        División nuclear que produce dos células hijas genéticamente idénticas.
+      </div>
+      <div class="glossary-item">
+        <strong>Meiosis</strong>
+        División nuclear que genera cuatro células haploides y promueve variabilidad genética.
+      </div>
+      <div class="glossary-item">
+        <strong>Citocinesis</strong>
+        División del citoplasma al finalizar la mitosis o la meiosis.
+      </div>
+      <div class="glossary-item">
+        <strong>Cromosoma</strong>
+        Estructura formada por ADN y proteínas que contiene los genes.
+      </div>
+      <div class="glossary-item">
+        <strong>Meristemo</strong>
+        Tejido vegetal con células en constante división.
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVIDADES -->
+  <section id="actividades">
+    <p class="pill-title">Trabajo encargado</p>
+    <h2>📝 Actividades para estudiantes de Agronomía</h2>
+
+    <div class="activities">
+      <div class="activity">
+        <div class="activity-title">1. Esquema del ciclo celular</div>
+        <div class="activity-type">Tipo: Individual</div>
+        <p>
+          Elabora un esquema o infografía donde se representen las fases del
+          <strong>ciclo celular</strong> (G1, S, G2 y M), indicando lo que ocurre en cada una,
+          aplicado a una célula vegetal.
+        </p>
+      </div>
+
+      <div class="activity">
+        <div class="activity-title">2. Comparación mitosis vs meiosis</div>
+        <div class="activity-type">Tipo: Parejas</div>
+        <p>
+          Completa una tabla comparando al menos cinco diferencias clave entre
+          <strong>mitosis</strong> y <strong>meiosis</strong>, e indica un ejemplo de dónde
+          ocurre cada proceso en una planta cultivada.
+        </p>
+      </div>
+
+      <div class="activity">
+        <div class="activity-title">3. Caso aplicado a un cultivo</div>
+        <div class="activity-type">Tipo: Grupal</div>
+        <p>
+          Elijan un cultivo de interés regional (por ejemplo, maíz, papa, arroz,
+          palto) y expliquen en una breve presentación cómo la variabilidad generada
+          por meiosis ha sido aprovechada en su mejoramiento.
+        </p>
+      </div>
+
+      <div class="activity">
+        <div class="activity-title">4. Preguntas de reflexión</div>
+        <div class="activity-type">Tipo: Individual</div>
+        <p>
+          Responde por escrito: ¿Qué consecuencias tendría para un cultivo agrícola
+          si fallan los mecanismos de control del ciclo celular? Relaciona tu
+          respuesta con la aparición de mutaciones o malformaciones.
+        </p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <strong>Sugerencia para el estudiante:</strong> utilice este sitio como guía para la
+      sesión de la división celular y como base para el trabajo encargado.
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="top-link" href="#inicio">▲ Volver al inicio</a><br>
+  Sitio web académico – Curso Biología General · Escuela Profesional de Agronomía · Mg. Ing. Julio Cesar Matos Lizana
+</footer>
+
+</body>
+</html>
