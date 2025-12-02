@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Leyes de Mendel y Evolución – Biología General Agronomía UNDC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #00695c;
+      --primary-light: #26a69a;
+      --primary-soft: #e0f2f1;
+      --accent: #ffca28;
+      --bg: #f5f5f5;
+      --text: #222;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      padding: 1.1rem 1.4rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.4);
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem 2.5rem;
+    }
+
+    .hero {
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.8rem 1.6rem;
+      margin-top: 1.4rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+      color: #fff;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      padding: 0.35rem 0.7rem;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .hero h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #444;
+      margin: 0.7rem 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.4rem 0 1rem;
+    }
+
+    .chip {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid rgba(0,105,92,0.3);
+    }
+
+    .hero p {
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-info {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 0.4rem;
+    }
+
+    .hero-figure {
+      background: radial-gradient(circle at top left, #b2dfdb, #ffffff);
+      border-radius: 18px;
+      padding: 1.2rem;
+      text-align: center;
+      border: 1px solid #e0e0e0;
+    }
+
+    .hero-icon {
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-figure h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      color: #333;
+    }
+
+    .hero-figure p {
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    section { margin-top: 2rem; }
+
+    section h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    section h3 {
+      font-size: 1.05rem;
+      margin: 0.9rem 0 0.3rem;
+      color: #333;
+    }
+
+    .pill-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #666;
+      margin-bottom: 0.15rem;
+    }
+
+    p { margin-bottom: 0.4rem; font-size: 0.94rem; }
+
+    ul {
+      margin: 0.3rem 0 0.6rem 1.2rem;
+      font-size: 0.93rem;
+    }
+
+    li { margin-bottom: 0.25rem; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1rem 1rem 1.1rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.04);
+      border: 1px solid #e0e0e0;
+    }
+
+    .card-strong { border-left: 4px solid var(--primary-light); }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #777;
+      margin-bottom: 0.35rem;
+    }
+
+    .highlight {
+      background: #fff8e1;
+      padding: 0.3rem 0.45rem;
+      border-radius: 8px;
+      border: 1px solid #ffecb3;
+      font-size: 0.88rem;
+      margin-top: 0.3rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #e8f5e9;
+      color: #1b5e20;
+    }
+
+    .table-basic {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .table-basic th, .table-basic td {
+      border: 1px solid #e0e0e0;
+      padding: 0.4rem 0.5rem;
+      text-align: left;
+    }
+
+    .table-basic th {
+      background: var(--primary-soft);
+      font-weight: 600;
+      color: #333;
+    }
+
+    .reading-box {
+      background: #fafafa;
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      border: 1px solid #e0e0e0;
+      font-size: 0.93rem;
+    }
+
+    .reading-title {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--primary);
+    }
+
+    .activities {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .activity {
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.8rem 0.9rem;
+      border: 1px solid #e0e0e0;
+      font-size: 0.9rem;
+    }
+
+    .activity-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: #333;
+    }
+
+    .activity-type {
+      font-size: 0.75rem;
+      color: #777;
+      margin-bottom: 0.3rem;
+    }
+
+    .glossary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .glossary-item {
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.7rem 0.8rem;
+      border: 1px dashed #b2dfdb;
+      font-size: 0.88rem;
+    }
+
+    .glossary-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: #333;
+    }
+
+    .cta {
+      margin-top: 1.2rem;
+      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      border: 1px solid #b2dfdb;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      padding: 1rem 0 1.4rem;
+    }
+
+    .top-link {
+      text-decoration: none;
+      font-size: 0.8rem;
+      color: var(--primary-light);
+    }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid-2, .activities, .glossary { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">🧬 Mendel, Evolución y Ambiente · Agronomía UNDC</div>
+    <nav>
+      <ul>
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#mendel">Leyes de Mendel</a></li>
+        <li><a href="#especiacion">Especiación y evolución</a></li>
+        <li><a href="#ambiente">Relaciones con el ambiente</a></li>
+        <li><a href="#ejercicios">Ejercicios de genética</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div>
+      <h1>Leyes de Mendel y Evolución</h1>
+      <h2>Herencia, especiación y ambiente en el contexto de la producción agrícola</h2>
+      <div class="chips">
+        <span class="chip">Biología General</span>
+        <span class="chip">Escuela Profesional de Agronomía</span>
+        <span class="chip">Universidad Nacional de Cañete</span>
+      </div>
+      <p>
+        Las <strong>Leyes de Mendel</strong> explican cómo se transmiten los caracteres
+        de generación en generación. Junto con los procesos de <strong>especiación</strong>
+        y <strong>evolución</strong>, permiten comprender el origen y la diversidad de las
+        variedades y especies cultivadas, así como su relación con el
+        <strong>ambiente</strong>.
+      </p>
+      <p class="hero-info">
+        Tema: Leyes de Mendel, especiación y evolución, relaciones con el ambiente y ejercicios de genética.<br>
+        Curso: Biología General – Escuela Profesional de Agronomía – UNDC.
+      </p>
+    </div>
+    <div class="hero-figure">
+      <div class="hero-icon">🌱🧬🌎</div>
+      <h3>Del cruce de plantas a la diversidad de cultivos</h3>
+      <p>
+        Cada cruzamiento dirigido o espontáneo, bajo condiciones ambientales
+        particulares, contribuye a la diversidad genética que hoy aprovechamos en agricultura.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRODUCCIÓN -->
+  <section id="introduccion">
+    <p class="pill-title">Unidad · Genética y evolución</p>
+    <h2>🔹 Genética, ambiente y agricultura</h2>
+    <div class="grid-2">
+      <div class="card card-strong">
+        <span class="tag">Genética y mejoramiento de cultivos</span>
+        <p>
+          El estudio de la herencia permite diseñar cruzamientos y seleccionar
+          combinaciones de alelos que favorezcan el <strong>rendimiento</strong>,
+          la <strong>calidad</strong> y la <strong>resistencia</strong> de las plantas
+          cultivadas.
+        </p>
+        <div class="highlight">
+          El ingeniero agrónomo aplica las leyes de la genética para obtener variedades
+          adaptadas a condiciones específicas de clima, suelo y manejo.
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Evolución y ambiente</span>
+        <p>
+          Las poblaciones de plantas y organismos asociados (plagas, patógenos,
+          microorganismos benéficos) evolucionan en respuesta a cambios en el
+          <strong>ambiente</strong> y a prácticas de manejo: riego, fertilización,
+          uso de agroquímicos, etc.
+        </p>
+        <p>
+          Comprender esta dinámica ayuda a plantear estrategias de producción
+          <strong>sostenibles</strong> y a largo plazo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEYES DE MENDEL -->
+  <section id="mendel">
+    <p class="pill-title">Parte 1</p>
+    <h2>1️⃣ Leyes de Mendel</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Primera ley: Ley de la segregación</span>
+        <p>
+          Cada carácter hereditario está determinado por un par de <strong>alelos</strong>.
+          Durante la formación de gametos, estos alelos se separan (se segregan) y
+          cada gameto recibe solo uno de ellos.
+        </p>
+        <ul>
+          <li>Explica por qué en F₂ reaparecen fenotipos recesivos.</li>
+          <li>Se observa claramente en cruzamientos monohíbridos (un solo carácter).</li>
+        </ul>
+        <div class="highlight">
+          Ejemplo agronómico: color de semilla en arveja o textura de grano en maíz
+          cuando dependen de un solo gen con dominancia completa.
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Segunda ley: Ley de la distribución independiente</span>
+        <p>
+          Los pares de alelos de diferentes genes se distribuyen de manera
+          independiente en los gametos, siempre que los genes estén en cromosomas
+          distintos o suficientemente separados.
+        </p>
+        <ul>
+          <li>Se aplica a cruzamientos dihíbridos (dos caracteres a la vez).</li>
+          <li>Genera nuevas combinaciones de rasgos en la descendencia.</li>
+        </ul>
+        <table class="table-basic">
+          <thead>
+            <tr>
+              <th>Cruzamiento</th>
+              <th>Proporción fenotípica clásica</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Monohíbrido (Aa × Aa)</td>
+              <td>3:1</td>
+            </tr>
+            <tr>
+              <td>Dihíbrido (AaBb × AaBb)</td>
+              <td>9:3:3:1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPECIACIÓN Y EVOLUCIÓN -->
+  <section id="especiacion">
+    <p class="pill-title">Parte 2</p>
+    <h2>2️⃣ Especiación y evolución</h2>
+
+    <div class="grid-2">
+      <div class="card card-strong">
+        <span class="tag">Especiación</span>
+        <p>
+          La <strong>especiación</strong> es el proceso por el cual una población ancestral
+          da origen a dos o más especies distintas. Ocurre cuando se acumulan
+          diferencias genéticas y se establece algún tipo de aislamiento reproductivo.
+        </p>
+        <ul>
+          <li><span class="badge">Alopátrica</span> – poblaciones se separan geográficamente.</li>
+          <li><span class="badge">Simpátrica</span> – divergencia dentro de la misma área (por ejemplo, poliploidía en plantas).</li>
+        </ul>
+        <div class="highlight">
+          En plantas cultivadas, la poliploidía ha dado origen a nuevas especies o
+          variedades con mayor tamaño de fruto y vigor.
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Evolución en agricultura</span>
+        <ul>
+          <li>
+            <span class="badge">Domesticación</span><br>
+            Proceso mediante el cual poblaciones silvestres se transforman en cultivos
+            por selección humana.
+          </li>
+          <li>
+            <span class="badge">Selección artificial</span><br>
+            Fitomejoradores eligen plantas con alelos favorables (rendimiento, calidad,
+            resistencia).
+          </li>
+          <li>
+            <span class="badge">Co-evolución</span><br>
+            Cultivos, plagas y patógenos se influyen mutuamente en su evolución.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELACIONES CON EL AMBIENTE -->
+  <section id="ambiente">
+    <p class="pill-title">Parte 3</p>
+    <h2>3️⃣ Relaciones con el ambiente</h2>
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Genotipo, ambiente y fenotipo</span>
+        <p>
+          El fenotipo observable (por ejemplo, altura de planta o rendimiento) resulta
+          de la <strong>interacción</strong> entre el genotipo y el ambiente.
+        </p>
+        <ul>
+          <li>Un mismo genotipo puede expresarse de manera distinta en ambientes diferentes.</li>
+          <li>Factores: clima, suelo, manejo agronómico, presencia de plagas y enfermedades.</li>
+        </ul>
+        <div class="highlight">
+          Esta relación se estudia en los ensayos de campo (multiambientales) para
+          recomendar variedades adaptadas a regiones específicas.
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Presión de selección ambiental</span>
+        <ul>
+          <li>
+            <span class="badge">Estrés hídrico</span> – puede favorecer alelos de tolerancia a sequía.
+          </li>
+          <li>
+            <span class="badge">Temperaturas extremas</span> – seleccionan genotipos capaces de resistir heladas o golpes de calor.
+          </li>
+          <li>
+            <span class="badge">Uso de plaguicidas</span> – puede seleccionar plagas resistentes si se usan de forma inadecuada.
+          </li>
+        </ul>
+        <p>
+          Entender estas presiones ayuda a planificar <strong>manejo integrado de cultivos</strong>
+          y prevenir problemas como la resistencia de plagas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EJERCICIOS DE GENÉTICA -->
+  <section id="ejercicios">
+    <p class="pill-title">Trabajo aplicado</p>
+    <h2>🧮 Ejercicios de genética</h2>
+
+    <div class="activities">
+      <div class="activity">
+        <div class="activity-title">Ejercicio 1: Cruzamiento monohíbrido</div>
+        <div class="activity-type">Tipo: Individual</div>
+        <p>
+          En una especie de planta, el alelo <strong>A</strong> (grano amarillo) es
+          dominante sobre <strong>a</strong> (grano blanco).  
+          a) Plantea el cuadro de Punnett para el cruzamiento Aa × Aa.  
+          b) Calcula las proporciones genotípicas y fenotípicas esperadas.
+        </p>
+      </div>
+
+      <div class="activity">
+        <div class="activity-title">Ejercicio 2: Cruzamiento dihíbrido</div>
+        <div class="activity-type">Tipo: Parejas</div>
+        <p>
+          En maíz, el grano amarillo (A) domina sobre blanco (a) y el grano liso (B)
+          domina sobre rugoso (b). Si se cruzan dos plantas AaBb × AaBb, determina:
+        </p>
+        <ul>
+          <li>La proporción fenotípica esperada.</li>
+          <li>La probabilidad de obtener un grano amarillo y rugoso.</li>
+        </ul>
+      </div>
+
+      <div class="activity">
+        <div class="activity-title">Ejercicio 3: Ambiente y fenotipo</div>
+        <div class="activity-type">Tipo: Grupal</div>
+        <p>
+          Elijan una variedad de cultivo local y describan cómo cambia su fenotipo
+          (altura, rendimiento, calidad) en dos ambientes contrastantes
+          (por ejemplo, valle vs. zona alta). Expliquen el papel del genotipo y
+          del ambiente en esas diferencias.
+        </p>
+      </div>
+
+      <div class="activity">
+        <div class="activity-title">Ejercicio 4: Caso de evolución reciente</div>
+        <div class="activity-type">Tipo: Grupal</div>
+        <p>
+          Investiguen un caso real (artículo corto o noticia) donde se haya reportado
+          evolución de resistencia en plagas, malezas o patógenos agrícolas.  
+          Resuman:  
+          – ¿Qué práctica agrícola generó la presión de selección?  
+          – ¿Qué cambios genéticos se observaron?  
+          – ¿Qué recomendaciones se proponen para el manejo?
+        </p>
+      </div>
+    </div>
+
+    <section>
+      <p class="pill-title">Apoyo al aprendizaje</p>
+      <h2>📚 Glosario básico</h2>
+      <div class="glossary">
+        <div class="glossary-item">
+          <strong>Leyes de Mendel</strong>
+          Principios que explican la transmisión de caracteres hereditarios.
+        </div>
+        <div class="glossary-item">
+          <strong>Especiación</strong>
+          Formación de nuevas especies a partir de una ancestral.
+        </div>
+        <div class="glossary-item">
+          <strong>Selección natural</strong>
+          Proceso por el cual ciertos fenotipos tienen mayor éxito reproductivo en un ambiente dado.
+        </div>
+        <div class="glossary-item">
+          <strong>Selección artificial</strong>
+          Selección dirigida por el ser humano según criterios productivos o de calidad.
+        </div>
+        <div class="glossary-item">
+          <strong>Ambiente</strong>
+          Conjunto de factores físicos, químicos y biológicos que rodean al organismo.
+        </div>
+        <div class="glossary-item">
+          <strong>Adaptación</strong>
+          Característica heredable que mejora el desempeño de un organismo en su ambiente.
+        </div>
+      </div>
+    </section>
+
+    <div class="cta">
+      <strong>Sugerencia para el estudiante:</strong> este sitio puede utilizarse como guía
+      para la sesión teórica y como base del trabajo práctico de genética y evolución.
+      
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="top-link" href="#inicio">▲ Volver al inicio</a><br>
+  Sitio web académico – Biología General · Escuela Profesional de Agronomía – Universidad Nacional de Cañete · Mg. Ing. Julio Cesar Matos Lizana
+
+</footer>
+
+</body>
+</html>
